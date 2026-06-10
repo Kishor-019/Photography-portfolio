@@ -1,0 +1,161 @@
+:root{
+  --bg: #898989;
+  --bg2: #2a2a2a;
+  --text: #e6e6e6;
+  --muted: #a0a0a0;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, sans-serif;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+}
+
+/* grain */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background-image:url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+  opacity:0.05;
+}
+
+/* HERO */
+.hero{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  background:linear-gradient(180deg,var(--bg),var(--bg2));
+}
+
+.hero h1{
+  font-size:3rem;
+  font-weight:300;
+  letter-spacing:2px;
+}
+
+.hero p{
+  color:var(--muted);
+  margin-top:10px;
+}
+
+.hero button {
+  margin-top: 25px;
+  padding: 12px 24px;
+  border: 1px solid var(--accent);
+  background: transparent;
+  cursor: pointer;
+  border-radius: 50px; /* makes it oval */
+  transition: 0.3s ease; /* smooth hover effect */
+}
+
+.hero button:hover {
+  background: green;
+  border-color: green;
+  color: white;
+}
+
+.hero button:hover{
+  background:var(--text);
+  color:var(--bg);
+}
+
+/* SECTIONS */
+section{
+  padding:80px 40px;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:40px;
+  font-weight:300;
+}
+
+/* GALLERY */
+.gallery{
+  column-count:3;
+  column-gap:15px;
+}
+
+@media(max-width:900px){
+  .gallery{ column-count:2; }
+}
+
+@media(max-width:600px){
+  .gallery{ column-count:1; }
+}
+
+.photo{
+  margin-bottom:15px;
+  cursor:pointer;
+}
+
+.photo img{
+  width:100%;
+  transition:0.3s;
+  filter:contrast(0.95) saturate(0.9);
+}
+
+.photo img:hover{
+  transform:scale(1.02);
+  opacity:0.9;
+}
+
+/* ABOUT */
+.about{
+  display:flex;
+  gap:40px;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+}
+
+.about img{
+  width:280px;
+  height:350px;
+  object-fit:cover;
+}
+
+.about-text{
+  max-width:500px;
+  color:black(--muted);
+  line-height:1.6;
+}
+
+/* FOOTER */
+.footer{
+  text-align:center;
+  padding:60px 20px;
+  color:#580536c4;
+  font-size:0.9rem;
+  letter-spacing:1px;
+}
+
+/* LIGHTBOX */
+.lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.85);
+  display:none;
+  justify-content:center;
+  align-items:center;
+}
+
+.lightbox img{
+  max-width:90%;
+  max-height:90%;
+}
+
+.lightbox.active{
+  display:flex;
+}
